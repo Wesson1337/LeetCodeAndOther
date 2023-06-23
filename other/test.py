@@ -82,7 +82,6 @@
 # print(foo(10))
 #
 from abc import ABC, abstractmethod
-from typing import List
 
 
 def some_gen(nums: list):
@@ -121,4 +120,9 @@ class Child(Abstract):
 
 print(Child().abstr())
 
-print(set([[1], [1]]))
+lst1 = [4, 1, 5, 4, 10, 4]
+print(lst1.index(4, 3))
+print(lst1.index(4, 4))
+print(lst1.index(1))
+print(lst1.index(4))
+
