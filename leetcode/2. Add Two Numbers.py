@@ -10,37 +10,45 @@ class ListNode:
 
 class Solution:
     def addTwoNumbers(self, l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:
-        val1, val2 = l1, l2
-        num1, num2 = '', ''
-        while val1 is not None:
-            num1 += str(val1.val)
-            val1 = val1.next
+        carry = 0
+        result = ListNode(0)
+        pointer = result
 
-        while val2 is not None:
-            num2 += str(val2.val)
-            val2 = val2.next
+        while l1 or l2 or carry:
+            first_num = l1.val if l1 else 0
+            second_num = l2.val if l2 else 0
 
-        res_num = str(int(num1) + int(num2))
+            summation = first_num + second_num + carry
 
-        res = ListNode()
-        next_node = res
+            num = summation % 10
+            carry = summation // 10
 
-        for i in range(len(res_num)):
-            next_node.val = int(res_num[i])
-            if i != len(res_num) - 1:
-                next_node.next = ListNode()
+            pointer.next = ListNode(num)
 
-        return res
+            pointer = pointer.next
+            l1 = l1.next if l1 else None
+            l2 = l2.next if l2 else None
+
+        return result.next
 
 
-res_num = "932"
-next_node = ListNode()
-res = next_node
-for i in range(len(res_num)):
-    next_node.val = int(res_num[i])
-    if i != len(res_num) - 1:
-        next_node.next = ListNode()
+def create_for_test(res_num: str):
+    res = ListNode()
+    next_node = res
+    for i in range(len(res_num)):
+        next_node.val = int(res_num[i])
+        if i != len(res_num) - 1:
+            next_node.next = ListNode()
+            next_node = next_node.next
+    return res
 
-while res.next is not None:
+
+first = create_for_test("9999999")
+second = create_for_test("9999")
+
+res = Solution().addTwoNumbers(first, second)
+
+while res is not None:
     print(res.val)
+    res = res.next
 # TODO
