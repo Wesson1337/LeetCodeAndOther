@@ -12,4 +12,9 @@ class Solution:
         for letter in s_count:
             if s_count.get(letter) != t_count.get(letter):
                 return False
+
         return True
+
+
+print(Solution().isAnagram("qiu", "uiq"))
+
