@@ -128,17 +128,13 @@ print(lst1.index(4, 4))
 print(lst1.index(1))
 print(lst1.index(4))
 
-import sys
-n = sys.stdin.readline().strip()
-
-prev_number = int(sys.stdin.readline().strip())
-
-for i in range(1, int(n)):
-    next_number = int(sys.stdin.readline().strip())
-    if prev_number != next_number or i == int(n) - 1:
-        print(prev_number)
-    prev_number = next_number
-
-
-
-print("le".isalpha())
+# import sys
+# n = sys.stdin.readline().strip()
+#
+# prev_number = int(sys.stdin.readline().strip())
+#
+# for i in range(1, int(n)):
+#     next_number = int(sys.stdin.readline().strip())
+#     if prev_number != next_number or i == int(n) - 1:
+#         print(prev_number)
+#     prev_number = next_number
